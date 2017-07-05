@@ -1,0 +1,2909 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>QueryResource</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home">
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="index.html">QueryResource</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="rest.html">REST</a></li>
+            <li id="nav-data"><a href="model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="model.html">Data Model</a></li>
+                <li><a href="rest.html">REST</a></li>
+                <li><a href="downloads.html">Files and Libraries</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="resource_QueryResource.html">QueryResource</a>
+              <ul>
+                <li><a href="resource_BasicRepositoryResource.html">BasicRepositoryResource</a></li>
+                <li><a href="resource_BasicRepositoryResource2.html">BasicRepositoryResource2</a></li>
+                <li><a href="resource_BasicTagRepositoryResource.html">BasicTagRepositoryResource</a></li>
+                <li><a href="resource_DataSourceResource.html">DataSourceResource</a></li>
+                <li><a href="resource_ExporterResource.html">ExporterResource</a></li>
+                <li><a href="resource_FilterRepositoryResource.html">FilterRepositoryResource</a></li>
+                <li><a href="resource_InfoResource.html">InfoResource</a></li>
+                <li><a href="resource_OlapDiscoverResource.html">OlapDiscoverResource</a></li>
+                <li><a href="resource_QueryResource.html">QueryResource</a></li>
+                <li><a href="resource_SessionResource.html">SessionResource</a></li>
+                <li><a href="resource_StatisticsResource.html">StatisticsResource</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>QueryResource</h1>
+
+      <p>QueryServlet contains all the methods required when manipulating an OLAP Query.</p>
+      <p>The following resources are applicable:</p>
+      <ul>
+        <li>
+        <a href="#path__saiku_-username-_query.html">/saiku/{username}/query</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-.html">/saiku/{username}/query/{queryname}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis.html">/saiku/{username}/query/{queryname}/axis</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-.html">/saiku/{username}/query/{queryname}/axis/{axis}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-.html">/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_children.html">/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/children</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_hierarchy_-hierarchy-_-level-.html">/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/hierarchy/{hierarchy}/{level}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_member.html">/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_member_-member-.html">/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member/{member}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_filter.html">/saiku/{username}/query/{queryname}/axis/{axis}/filter</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_limit.html">/saiku/{username}/query/{queryname}/axis/{axis}/limit</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_limit_-limitfunction-.html">/saiku/{username}/query/{queryname}/axis/{axis}/limit/{limitfunction}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_show_totals_-function-.html">/saiku/{username}/query/{queryname}/axis/{axis}/show_totals/{function}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_sort.html">/saiku/{username}/query/{queryname}/axis/{axis}/sort</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_axis_-axis-_sort_-sortorder-_-sortliteral-.html">/saiku/{username}/query/{queryname}/axis/{axis}/sort/{sortorder}/{sortliteral}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_cell_-position-_-value-.html">/saiku/{username}/query/{queryname}/cell/{position}/{value}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_drillacross.html">/saiku/{username}/query/{queryname}/drillacross</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_drillthrough.html">/saiku/{username}/query/{queryname}/drillthrough</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_drillthrough_export_csv.html">/saiku/{username}/query/{queryname}/drillthrough/export/csv</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_explain.html">/saiku/{username}/query/{queryname}/explain</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_export_csv.html">/saiku/{username}/query/{queryname}/export/csv</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_export_csv_-format-.html">/saiku/{username}/query/{queryname}/export/csv/{format}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_export_pdf.html">/saiku/{username}/query/{queryname}/export/pdf</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_export_pdf_-format-.html">/saiku/{username}/query/{queryname}/export/pdf/{format}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_export_xls.html">/saiku/{username}/query/{queryname}/export/xls</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_export_xls_-format-.html">/saiku/{username}/query/{queryname}/export/xls/{format}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_filter.html">/saiku/{username}/query/{queryname}/filter</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_mdx.html">/saiku/{username}/query/{queryname}/mdx</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_properties.html">/saiku/{username}/query/{queryname}/properties</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_properties_-propertyKey-.html">/saiku/{username}/query/{queryname}/properties/{propertyKey}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_qm2mdx.html">/saiku/{username}/query/{queryname}/qm2mdx</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_result.html">/saiku/{username}/query/{queryname}/result</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_result_-format-.html">/saiku/{username}/query/{queryname}/result/{format}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_result_metadata_dimensions_-dimension-_hierarchies_-hierarchy-_levels_-level-.html">/saiku/{username}/query/{queryname}/result/metadata/dimensions/{dimension}/hierarchies/{hierarchy}/levels/{level}</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_swapaxes.html">/saiku/{username}/query/{queryname}/swapaxes</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_tag.html">/saiku/{username}/query/{queryname}/tag</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_xml.html">/saiku/{username}/query/{queryname}/xml</a>
+        </li>
+        <li>
+        <a href="#path__saiku_-username-_query_-queryname-_zoomin.html">/saiku/{username}/query/{queryname}/zoomin</a>
+        </li>
+      </ul>
+        <a name="path__saiku_-username-_query.html"></a>
+      <h1>/saiku/{username}/query</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query">/rest/saiku/{username}/query</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Return a list of open queries.
+          </p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}">/rest/saiku/{username}/query/{queryname}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="#GET">GET</a></li>
+        <li><a href="#DELETE">DELETE</a></li>
+        <li><a href="#POST">POST</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete query from the query pool.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>a HTTP 410(Works) or HTTP 404(Call failed).</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Create a new Saiku Query.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>connection</td>
+          <td>
+            the name of the Saiku connection.
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>cube</td>
+          <td>
+            the name of the cube.
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>catalog</td>
+          <td>
+            the catalog name.
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>schema</td>
+          <td>
+            the name of the schema.
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>xml</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            the name you want to assign to the query.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+            <td>formParams</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis">/rest/saiku/{username}/query/{queryname}/axis</a></p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}">/rest/saiku/{username}/query/{queryname}/axis/{axis}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Return a list of dimensions for an axis in a query.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            the name of the query.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            the name of the axis.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>a list of available dimensions.</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Remove all dimensions and selections on an axis
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            the name of the query.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            the name of the axis.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}">/rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="#GET">GET</a></li>
+        <li><a href="#POST">POST</a></li>
+        <li><a href="#DELETE">DELETE</a></li>
+        <li><a href="#PUT">PUT</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Return a dimension and its selections for an axis in a query.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            the name of the query.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            the name of the axis.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            the name of the axis.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>a list of available dimensions.</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Move a dimension from one axis to another.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            the name of the query.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            the name of the axis.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            the name of the dimension.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>position</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>-1</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>HTTP 200 or HTTP 500.</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a dimension.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>selections</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_children.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/children</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/children">/rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/children</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>member</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>member</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_hierarchy_-hierarchy-_-level-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/hierarchy/{hierarchy}/{level}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/hierarchy/{hierarchy}/{level}">/rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/hierarchy/{hierarchy}/{level}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>hierarchy</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>level</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>position</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>-1</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>hierarchy</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>level</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_member.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member">/rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member</a></p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+            <td>formParams</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/x-www-form-urlencoded</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_dimension_-dimension-_member_-member-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member/{member}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member/{member}">/rest/saiku/{username}/query/{queryname}/axis/{axis}/dimension/{dimension}/member/{member}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Move a member.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>selection</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>MEMBER</td>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>member</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>position</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>memberposition</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>-1</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>selection</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>MEMBER</td>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>member</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_filter.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/filter</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/filter">/rest/saiku/{username}/query/{queryname}/axis/{axis}/filter</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>filterCondition</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_limit.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/limit</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/limit">/rest/saiku/{username}/query/{queryname}/axis/{axis}/limit</a></p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_limit_-limitfunction-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/limit/{limitfunction}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/limit/{limitfunction}">/rest/saiku/{username}/query/{queryname}/axis/{axis}/limit/{limitfunction}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>limitfunction</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>n</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>sortliteral</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_show_totals_-function-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/show_totals/{function}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/show_totals/{function}">/rest/saiku/{username}/query/{queryname}/axis/{axis}/show_totals/{function}</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>function</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_sort.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/sort</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/sort">/rest/saiku/{username}/query/{queryname}/axis/{axis}/sort</a></p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+        <a name="path__saiku_-username-_query_-queryname-_axis_-axis-_sort_-sortorder-_-sortliteral-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/axis/{axis}/sort/{sortorder}/{sortliteral}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/axis/{axis}/sort/{sortorder}/{sortliteral}">/rest/saiku/{username}/query/{queryname}/axis/{axis}/sort/{sortorder}/{sortliteral}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>axis</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>sortorder</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>sortliteral</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+        <a name="path__saiku_-username-_query_-queryname-_cell_-position-_-value-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/cell/{position}/{value}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/cell/{position}/{value}">/rest/saiku/{username}/query/{queryname}/cell/{position}/{value}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>position</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_drillacross.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/drillacross</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/drillacross">/rest/saiku/{username}/query/{queryname}/drillacross</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>position</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>drill</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_drillthrough.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/drillthrough</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/drillthrough">/rest/saiku/{username}/query/{queryname}/drillthrough</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>maxrows</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>position</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>returns</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_drillthrough_export_csv.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/drillthrough/export/csv</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/drillthrough/export/csv">/rest/saiku/{username}/query/{queryname}/drillthrough/export/csv</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>maxrows</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>position</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>returns</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>text/csv</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_explain.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/explain</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/explain">/rest/saiku/{username}/query/{queryname}/explain</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_export_csv.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/export/csv</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/export/csv">/rest/saiku/{username}/query/{queryname}/export/csv</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>text/csv</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_export_csv_-format-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/export/csv/{format}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/export/csv/{format}">/rest/saiku/{username}/query/{queryname}/export/csv/{format}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>text/csv</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_export_pdf.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/export/pdf</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/export/pdf">/rest/saiku/{username}/query/{queryname}/export/pdf</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>svg</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/pdf</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/pdf</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_export_pdf_-format-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/export/pdf/{format}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/export/pdf/{format}">/rest/saiku/{username}/query/{queryname}/export/pdf/{format}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/pdf</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>svg</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/pdf</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_export_xls.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/export/xls</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/export/xls">/rest/saiku/{username}/query/{queryname}/export/xls</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/vnd.ms-excel</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_export_xls_-format-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/export/xls/{format}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/export/xls/{format}">/rest/saiku/{username}/query/{queryname}/export/xls/{format}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td>flattened</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/vnd.ms-excel</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_filter.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/filter</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/filter">/rest/saiku/{username}/query/{queryname}/filter</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="#GET">GET</a></li>
+        <li><a href="#PUT">PUT</a></li>
+        <li><a href="#DELETE">DELETE</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>hierarchy</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>level</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>filter</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_mdx.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/mdx</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/mdx">/rest/saiku/{username}/query/{queryname}/mdx</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>mdx</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+        <a name="path__saiku_-username-_query_-queryname-_properties.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/properties</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/properties">/rest/saiku/{username}/query/{queryname}/properties</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>properties</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_properties_-propertyKey-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/properties/{propertyKey}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/properties/{propertyKey}">/rest/saiku/{username}/query/{queryname}/properties/{propertyKey}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyKey</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyValue</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_qm2mdx.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/qm2mdx</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/qm2mdx">/rest/saiku/{username}/query/{queryname}/qm2mdx</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_result.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/result</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/result">/rest/saiku/{username}/query/{queryname}/result</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="#DELETE">DELETE</a></li>
+        <li><a href="#GET">GET</a></li>
+        <li><a href="#POST">POST</a></li>
+      </ul>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>limit</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td>0</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>mdx</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>limit</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>0</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_result_-format-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/result/{format}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/result/{format}">/rest/saiku/{username}/query/{queryname}/result/{format}</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>mdx</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>limit</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td>0</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>format</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>limit</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td>0</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_result_metadata_dimensions_-dimension-_hierarchies_-hierarchy-_levels_-level-.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/result/metadata/dimensions/{dimension}/hierarchies/{hierarchy}/levels/{level}</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/result/metadata/dimensions/{dimension}/hierarchies/{hierarchy}/levels/{level}">/rest/saiku/{username}/query/{queryname}/result/metadata/dimensions/{dimension}/hierarchies/{hierarchy}/levels/{level}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>dimension</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>hierarchy</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>level</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>result</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>search</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>searchlimit</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>query</td>
+          <td>-1</td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_swapaxes.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/swapaxes</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/swapaxes">/rest/saiku/{username}/query/{queryname}/swapaxes</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_tag.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/tag</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/tag">/rest/saiku/{username}/query/{queryname}/tag</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>tag</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>tagname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_xml.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/xml</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/xml">/rest/saiku/{username}/query/{queryname}/xml</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__saiku_-username-_query_-queryname-_zoomin.html"></a>
+      <h1>/saiku/{username}/query/{queryname}/zoomin</h1>
+      <p class="note">Mount Point: <a href="../rest/saiku/{username}/query/{queryname}/zoomin">/rest/saiku/{username}/query/{queryname}/zoomin</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>queryname</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>selections</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>form</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br/>application/xml<br/></td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+
+      <div class="clear" />
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="js/libs/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="js/libs/prettify/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+</body>
+</html>

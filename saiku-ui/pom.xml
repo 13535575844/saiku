@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>saiku</artifactId>
+        <groupId>com.yibo</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>saiku-ui</artifactId>
+    <packaging>war</packaging>
+    <name>saiku-ui Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <build>
+        <finalName>saiku-ui</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.13.v20161014</version>
+
+                <configuration>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+
+                    <!-- 设置扫描target/classes内部文件变化时间间隔 -->
+                    <!--<scanIntervalSeconds>10</scanIntervalSeconds>-->
+                    <!--开启多个app 时候需要自己修改这个端口-->
+                    <httpConnector>
+                        <port>8090</port>
+                    </httpConnector>
+                    <!--开启多个app 时候需要自己修改这个端口-->
+                    <stopPort>8092</stopPort>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/saiku-core/olap-util/olap-util.iml" filepath="$PROJECT_DIR$/saiku-core/olap-util/olap-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saiku-core/query/query.iml" filepath="$PROJECT_DIR$/saiku-core/query/query.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saiku.iml" filepath="$PROJECT_DIR$/saiku.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saiku-core/saiku-core.iml" filepath="$PROJECT_DIR$/saiku-core/saiku-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saiku-ui/saiku-ui.iml" filepath="$PROJECT_DIR$/saiku-ui/saiku-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saiku-web/saiku-web.iml" filepath="$PROJECT_DIR$/saiku-web/saiku-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saiku-core/service/service.iml" filepath="$PROJECT_DIR$/saiku-core/service/service.iml" />
+    </modules>
+  </component>
+</project>

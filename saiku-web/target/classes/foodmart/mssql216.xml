@@ -1,0 +1,356 @@
+<Schema name="myschema">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="DateKey">
+      <Table name="Dim_Date">
+      </Table>
+      <Level name="Date Key" visible="true" column="DateKey" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+      <Level name="&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26376;" visible="true" column="Month" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="&#23395;&#24230;" visible="true" column="Quarter" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26085;" visible="true" column="Day" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26159;&#21542;&#21608;&#26411;" visible="true" column="Weekend" type="String" uniqueMembers="false" levelType="TimeUndefined" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26085;&#26399;" visible="true" column="Weekday" type="Numeric" uniqueMembers="false" levelType="TimeUndefined" hideMemberIf="Never">
+      </Level>
+      <Level name="&#24180;-&#23618;&#32423;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26376;-&#23618;&#32423;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26085;-&#23618;&#32423;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+      <Level name="&#23395;&#24230;-&#23618;&#32423;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="&#21322;&#24180;" visible="true" column="SemiYearly" type="String" uniqueMembers="false" levelType="TimeHalfYear" hideMemberIf="Never">
+      </Level>
+      <Level name="&#21322;&#24180;-&#23618;&#32423;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeHalfYears" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="&#24180;-&#26376;" visible="true" hasAll="true" primaryKey="Year">
+      <Table name="Dim_Date">
+      </Table>
+      <Level name="&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26376;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="&#24180;-&#21322;&#24180;-&#23395;-&#26376;-&#26085;" visible="true" hasAll="true" primaryKey="Year">
+      <Table name="Dim_Date">
+      </Table>
+      <Level name="&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#21322;&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeHalfYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#23395;&#24230;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26376;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26085;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="&#24180;-&#26376;-&#26085;" visible="true" hasAll="true" primaryKey="Year">
+      <Table name="Dim_Date">
+      </Table>
+      <Level name="&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26376;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26085;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="&#24180;-&#23395;-&#26376;-&#26085;" visible="true" hasAll="true" primaryKey="Year">
+      <Table name="Dim_Date">
+      </Table>
+      <Level name="&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#23395;&#24230;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26376;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="&#26085;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="&#24180;-&#21322;&#24180;-&#23395;" visible="true" hasAll="true" primaryKey="Year">
+      <Table name="Dim_Date">
+      </Table>
+      <Level name="&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#21322;&#24180;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeHalfYears" hideMemberIf="Never">
+      </Level>
+      <Level name="&#23395;&#24230;" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="DeptID">
+      <Table name="Dim_Department">
+      </Table>
+      <Level name="&#31185;&#23460;&#21517;&#31216;" visible="true" column="DeptID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="&#20840;&#38498;" visible="true" column="HospitalID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="&#20108;&#32423;&#31185;&#23460;" visible="true" column="SecondLevDeptID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="&#19968;&#32423;&#31185;&#23460;" visible="true" column="FirstLevDeptID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="&#20840;&#38498;-&#20998;&#32423;-&#31185;&#23460;" visible="true" hasAll="true" primaryKey="HospitalID">
+      <Table name="Dim_Department">
+      </Table>
+      <Level name="&#20840;&#38498;" visible="true" column="HospitalID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="&#19968;&#32423;&#31185;&#23460;" visible="true" column="FirstLevDeptID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="&#20108;&#32423;&#31185;&#23460;" visible="true" column="SecondLevDeptID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="&#31185;&#23460;&#21517;&#31216;" visible="true" column="DeptID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="&#23618;&#27425;&#32467;&#26500; 1" visible="true" hasAll="true" primaryKey="HospitalID">
+      <Table name="Dim_Department">
+      </Table>
+      <Level name="&#20840;&#38498;" visible="true" column="HospitalID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="&#31185;&#23460;&#21517;&#31216;" visible="true" column="DeptID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#36153;&#29992;&#31867;&#22411;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="FeeTypeID">
+      <Table name="Dim_FeeType">
+      </Table>
+      <Level name="&#36153;&#29992;&#31867;&#22411;" visible="true" column="FeeTypeID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#25346;&#21495;&#31867;&#22411;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="RegTypeID">
+      <Table name="Dim_RegType">
+      </Table>
+      <Level name="&#25346;&#21495;&#31867;&#22411;" visible="true" column="RegTypeID" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#20837;&#38498;&#24773;&#20917;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="PatientStatus">
+      <Table name="Dim_PatientStatus">
+      </Table>
+      <Level name="&#20837;&#38498;&#24773;&#20917;" visible="true" column="PatientStatus" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#26159;&#21542;&#22797;&#35786;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="IsFru">
+      <Table name="Dim_IsFru">
+      </Table>
+      <Level name="&#26159;&#21542;&#22797;&#35786;" visible="true" column="IsFru" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#26159;&#21542;&#27515;&#20129;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="IsDeath">
+      <Table name="Dim_IsDeath">
+      </Table>
+      <Level name="&#26159;&#21542;&#27515;&#20129;" visible="true" column="IsDeath" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#26159;&#21542;&#39044;&#32422;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="IsBook">
+      <Table name="Dim_IsBook">
+      </Table>
+      <Level name="&#26159;&#21542;&#39044;&#32422;" visible="true" column="IsBook" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#25163;&#26415;&#32423;&#21035;">
+    <Hierarchy name="Default" visible="true" hasAll="true" primaryKey="OperationLevelID">
+      <Table name="Dim_OperationLevel">
+      </Table>
+      <Level name="&#25163;&#26415;&#32423;&#21035;" visible="true" column="OperationLevelID" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="&#20986;&#38498;&#30149;&#20154;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_OutPatinet">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#26159;&#21542;&#27515;&#20129;" name="&#26159;&#21542;&#27515;&#20129;" visible="true" foreignKey="ISDeath" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#20303;&#38498;&#22825;&#25968;" column="InDays" aggregator="sum">
+    </Measure>
+  </Cube>
+  <Cube name="&#20986;&#38498;&#30149;&#20154;&#34920;-&#20986;&#38498;&#20154;&#25968;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_OutPatinet">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#20986;&#38498;&#20154;&#25968;" column="SerialNumber" aggregator="distinct count">
+    </Measure>
+  </Cube>
+  <Cube name="&#38376;&#35786;&#22788;&#26041;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_OPOrder">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#22788;&#26041;&#25968;" column="SerialNumber" aggregator="distinct count">
+    </Measure>
+  </Cube>
+  <Cube name="&#38376;&#35786;&#23601;&#35786;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_OPVisit">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#38376;&#35786;&#20154;&#27425;" column="SerialNumber" aggregator="distinct count">
+    </Measure>
+  </Cube>
+  <Cube name="&#25163;&#26415;&#20449;&#24687;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_Operation">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#25163;&#26415;&#32423;&#21035;" name="&#25163;&#26415;&#32423;&#21035;" visible="true" foreignKey="OperationLevel" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#25163;&#26415;&#20363;&#25968;" column="*" aggregator="count">
+    </Measure>
+  </Cube>
+  <Cube name="&#20837;&#38498;&#30149;&#20154;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_InPatinet">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#20837;&#38498;&#24773;&#20917;" name="&#20837;&#38498;&#24773;&#20917;" visible="true" foreignKey="InStatus" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#20837;&#38498;&#20154;&#25968;" column="SerialNumber" aggregator="distinct count">
+    </Measure>
+  </Cube>
+  <Cube name="&#38376;&#35786;&#25346;&#21495;&#20449;&#24687;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_OPRegister">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#25346;&#21495;&#31867;&#22411;" name="&#25346;&#21495;&#31867;&#22411;" visible="true" foreignKey="RegTypeID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#26159;&#21542;&#22797;&#35786;" name="&#26159;&#21542;&#22797;&#35786;" visible="true" foreignKey="ISFru" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#26159;&#21542;&#39044;&#32422;" name="&#26159;&#21542;&#39044;&#32422;" visible="true" foreignKey="ISBook" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#38376;&#35786;&#25346;&#21495;&#20154;&#27425;" column="SerialNumber" aggregator="distinct count">
+    </Measure>
+  </Cube>
+  <Cube name="&#20303;&#38498;&#25910;&#36153;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_IPIncome">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#36153;&#29992;&#31867;&#22411;" name="&#36153;&#29992;&#31867;&#22411;" visible="true" foreignKey="FeeTypeID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#20303;&#38498;&#25910;&#20837;" column="TotalAmount" aggregator="sum">
+    </Measure>
+  </Cube>
+  <Cube name="&#38376;&#35786;&#25910;&#36153;&#34920;" visible="true" cache="true" enabled="true">
+    <Table name="Fact_OPIncome">
+    </Table>
+    <DimensionUsage source="&#26085;&#26399;" name="&#26085;&#26399;" visible="true" foreignKey="OutDateID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#36153;&#29992;&#31867;&#22411;" name="&#36153;&#29992;&#31867;&#22411;" visible="true" foreignKey="FeeTypeID" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="&#31185;&#23460;" name="&#31185;&#23460;" visible="true" foreignKey="OutDeptID" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="&#38376;&#35786;&#25910;&#20837;" column="TotalAmount" aggregator="sum">
+    </Measure>
+  </Cube>
+  <VirtualCube enabled="true" name="myschema" visible="true">
+    <VirtualCubeDimension cubeName="&#20986;&#38498;&#30149;&#20154;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20986;&#38498;&#30149;&#20154;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20986;&#38498;&#30149;&#20154;&#34920;" visible="true" highCardinality="false" name="&#26159;&#21542;&#27515;&#20129;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20986;&#38498;&#30149;&#20154;&#34920;-&#20986;&#38498;&#20154;&#25968;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20986;&#38498;&#30149;&#20154;&#34920;-&#20986;&#38498;&#20154;&#25968;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#22788;&#26041;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#22788;&#26041;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#23601;&#35786;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#23601;&#35786;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#25163;&#26415;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#25163;&#26415;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#25163;&#26415;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#25163;&#26415;&#32423;&#21035;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20837;&#38498;&#30149;&#20154;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20837;&#38498;&#30149;&#20154;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20837;&#38498;&#30149;&#20154;&#34920;" visible="true" highCardinality="false" name="&#20837;&#38498;&#24773;&#20917;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25346;&#21495;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25346;&#21495;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25346;&#21495;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#25346;&#21495;&#31867;&#22411;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25346;&#21495;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#26159;&#21542;&#22797;&#35786;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25346;&#21495;&#20449;&#24687;&#34920;" visible="true" highCardinality="false" name="&#26159;&#21542;&#39044;&#32422;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20303;&#38498;&#25910;&#36153;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20303;&#38498;&#25910;&#36153;&#34920;" visible="true" highCardinality="false" name="&#36153;&#29992;&#31867;&#22411;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#20303;&#38498;&#25910;&#36153;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25910;&#36153;&#34920;" visible="true" highCardinality="false" name="&#26085;&#26399;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25910;&#36153;&#34920;" visible="true" highCardinality="false" name="&#36153;&#29992;&#31867;&#22411;">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="&#38376;&#35786;&#25910;&#36153;&#34920;" visible="true" highCardinality="false" name="&#31185;&#23460;">
+    </VirtualCubeDimension>
+    <VirtualCubeMeasure cubeName="&#20986;&#38498;&#30149;&#20154;&#34920;" name="[Measures].[&#20303;&#38498;&#22825;&#25968;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#20986;&#38498;&#30149;&#20154;&#34920;-&#20986;&#38498;&#20154;&#25968;" name="[Measures].[&#20986;&#38498;&#20154;&#25968;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#38376;&#35786;&#22788;&#26041;&#34920;" name="[Measures].[&#22788;&#26041;&#25968;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#38376;&#35786;&#23601;&#35786;&#34920;" name="[Measures].[&#38376;&#35786;&#20154;&#27425;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#25163;&#26415;&#20449;&#24687;&#34920;" name="[Measures].[&#25163;&#26415;&#20363;&#25968;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#20837;&#38498;&#30149;&#20154;&#34920;" name="[Measures].[&#20837;&#38498;&#20154;&#25968;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#38376;&#35786;&#25346;&#21495;&#20449;&#24687;&#34920;" name="[Measures].[&#38376;&#35786;&#25346;&#21495;&#20154;&#27425;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#20303;&#38498;&#25910;&#36153;&#34920;" name="[Measures].[&#20303;&#38498;&#25910;&#20837;]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="&#38376;&#35786;&#25910;&#36153;&#34920;" name="[Measures].[&#38376;&#35786;&#25910;&#20837;]" visible="true">
+    </VirtualCubeMeasure>
+  </VirtualCube>
+</Schema>

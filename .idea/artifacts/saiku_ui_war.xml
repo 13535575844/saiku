@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="saiku-ui:war">
+    <output-path>$PROJECT_DIR$/saiku-ui/target</output-path>
+    <root id="archive" name="saiku-ui.war">
+      <element id="artifact" artifact-name="saiku-ui:war exploded" />
+    </root>
+  </artifact>
+</component>
